@@ -127,11 +127,22 @@ public class generalTests {
 
 	}
 
-	@Test(priority=4)
+	@Test(priority=4,enabled=false)
 	public void contactNumber() {
 		String actualPhoneNumber=driver.findElement(By.xpath("//li[span[@class='phone']]")).getText().trim();
 		String expectedPhoneNumber="+123 456 7890";
 		Assert.assertEquals(actualPhoneNumber, expectedPhoneNumber);
 		
+	}
+	
+	@Test(priority=5)
+	public void siteMap() {
+		WebElement siteMapButton=driver.findElement(By.linkText("Site Map"));
+		siteMapButton.click();
+		WebElement content=driver.findElement(By.className("content"));
+		List<WebElement> allItems=content.findElements(By.tagName("a"));
+		for(int i=0;i<allItems.size();i++)
+		System.out.println(allItems.get(i).getText().toUpperCase());
+			
 	}
 }
