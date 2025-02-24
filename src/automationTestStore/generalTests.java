@@ -1,6 +1,7 @@
 package automationTestStore;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -79,27 +80,51 @@ public class generalTests {
 		continueButton = driver.findElement(By.cssSelector("button[title='Continue']"));
 		continueButton.click();
 		Thread.sleep(2000);
-		
-		String expetedSuccessMessage=driver.findElement(By.cssSelector(".maintext")).getText();
-		String actualMessage="YOUR ACCOUNT HAS BEEN CREATED!";
+
+		String expetedSuccessMessage = driver.findElement(By.cssSelector(".maintext")).getText();
+		String actualMessage = "YOUR ACCOUNT HAS BEEN CREATED!";
 		Assert.assertEquals(actualMessage, expetedSuccessMessage);
-		
+
 		continueButton = driver.findElement(By.cssSelector("a[title='Continue']"));
 		continueButton.click();
-		
+
 	}
-	
-	@Test(priority=2)
+
+	@Test(priority = 2)
 	public void login() {
 		WebElement loginNavigate = driver.findElement(By.linkText("Login or register"));
 		loginNavigate.click();
-		
-		WebElement nameInput=driver.findElement(By.id("loginFrm_loginname"));
-		WebElement passwordInput=driver.findElement(By.id("loginFrm_password"));
-		WebElement loginButton=driver.findElement(By.xpath("//button[@title='Login']"));
+
+		WebElement nameInput = driver.findElement(By.id("loginFrm_loginname"));
+		WebElement passwordInput = driver.findElement(By.id("loginFrm_password"));
+		WebElement loginButton = driver.findElement(By.xpath("//button[@title='Login']"));
 		nameInput.sendKeys(loginName);
 		passwordInput.sendKeys(password);
 		loginButton.click();
+	}
+
+	@Test(priority = 3)
+	public void menSection() {
+		driver.get("https://automationteststore.com/index.php?rt=product/category&path=58");
+
+		String menSections[] = { "Fragrance Sets", "Body & Shower", "Pre-Shave & Shaving", "Skincare" };
+		int pageNumber = menSections.length;
+		while (pageNumber != 0) {
+			pageNumber--;
+			WebElement bodyPage = driver.findElement(By.linkText(menSections[pageNumber]));
+			bodyPage.click();
+
+			WebElement productContainor = driver.findElement(By.cssSelector(".thumbnails.grid.row.list-inline"));
+			List<WebElement> products = productContainor.findElements(By.xpath("//a[@title='Add to Cart']"));
+
+			for (int i = 0; i < products.size() / 2; i++) {
+				products.get(i).click();
+			}
+				driver.navigate().back();
+
+
+		}
+
 	}
 
 }
