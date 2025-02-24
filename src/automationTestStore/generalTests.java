@@ -24,7 +24,7 @@ public class generalTests {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
-	@Test(priority = 1, enabled = true)
+	@Test(priority = 1, enabled = false)
 	public void signup() throws InterruptedException {
 		WebElement signupNavigate = driver.findElement(By.linkText("Login or register"));
 		signupNavigate.click();
@@ -87,8 +87,19 @@ public class generalTests {
 		continueButton = driver.findElement(By.cssSelector("a[title='Continue']"));
 		continueButton.click();
 		
+	}
+	
+	@Test(priority=2)
+	public void login() {
+		WebElement loginNavigate = driver.findElement(By.linkText("Login or register"));
+		loginNavigate.click();
 		
-
+		WebElement nameInput=driver.findElement(By.id("loginFrm_loginname"));
+		WebElement passwordInput=driver.findElement(By.id("loginFrm_password"));
+		WebElement loginButton=driver.findElement(By.xpath("//button[@title='Login']"));
+		nameInput.sendKeys(loginName);
+		passwordInput.sendKeys(password);
+		loginButton.click();
 	}
 
 }

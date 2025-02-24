@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-02-24T13:38:01 EET" name="Default suite" finished-at="2025-02-24T13:38:40 EET" duration-ms="39626">
+  <suite started-at="2025-02-24T15:16:07 EET" name="Default suite" finished-at="2025-02-24T15:16:16 EET" duration-ms="9521">
     <groups>
     </groups>
-    <test started-at="2025-02-24T13:38:01 EET" name="Default test" finished-at="2025-02-24T13:38:40 EET" duration-ms="39626">
+    <test started-at="2025-02-24T15:16:07 EET" name="Default test" finished-at="2025-02-24T15:16:16 EET" duration-ms="9521">
       <class name="automationTestStore.generalTests">
-        <test-method is-config="true" signature="setup()[pri:0, instance:automationTestStore.generalTests@25a6944c]" started-at="2025-02-24T13:38:01 EET" name="setup" finished-at="2025-02-24T13:38:19 EET" duration-ms="18633" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:automationTestStore.generalTests@5e1fa5b1]" started-at="2025-02-24T15:16:07 EET" name="setup" finished-at="2025-02-24T15:16:13 EET" duration-ms="6071" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="signup()[pri:1, instance:automationTestStore.generalTests@25a6944c]" started-at="2025-02-24T13:38:19 EET" name="signup" finished-at="2025-02-24T13:38:40 EET" duration-ms="20948" status="PASS">
+        <test-method signature="login()[pri:2, instance:automationTestStore.generalTests@5e1fa5b1]" started-at="2025-02-24T15:16:13 EET" name="login" finished-at="2025-02-24T15:16:16 EET" duration-ms="3392" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- signup -->
+        </test-method> <!-- login -->
       </class> <!-- automationTestStore.generalTests -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
