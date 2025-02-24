@@ -5,8 +5,8 @@
     <classes>
       <class name="automationTestStore.generalTests">
         <methods>
-          <include name="menSection"/>
           <include name="setup"/>
+          <include name="contactNumber"/>
         </methods>
       </class> <!-- automationTestStore.generalTests -->
     </classes>

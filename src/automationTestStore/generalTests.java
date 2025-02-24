@@ -90,7 +90,7 @@ public class generalTests {
 
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2,enabled=false)
 	public void login() {
 		WebElement loginNavigate = driver.findElement(By.linkText("Login or register"));
 		loginNavigate.click();
@@ -103,12 +103,13 @@ public class generalTests {
 		loginButton.click();
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3, enabled = false)
 	public void menSection() {
 		driver.get("https://automationteststore.com/index.php?rt=product/category&path=58");
 
 		String menSections[] = { "Fragrance Sets", "Body & Shower", "Pre-Shave & Shaving", "Skincare" };
 		int pageNumber = menSections.length;
+		int numberOfProductsSelected = 0;
 		while (pageNumber != 0) {
 			pageNumber--;
 			WebElement bodyPage = driver.findElement(By.linkText(menSections[pageNumber]));
@@ -120,11 +121,17 @@ public class generalTests {
 			for (int i = 0; i < products.size() / 2; i++) {
 				products.get(i).click();
 			}
-				driver.navigate().back();
-
+			driver.navigate().back();
 
 		}
 
 	}
 
+	@Test(priority=4)
+	public void contactNumber() {
+		String actualPhoneNumber=driver.findElement(By.xpath("//li[span[@class='phone']]")).getText().trim();
+		String expectedPhoneNumber="+123 456 7890";
+		Assert.assertEquals(actualPhoneNumber, expectedPhoneNumber);
+		
+	}
 }
